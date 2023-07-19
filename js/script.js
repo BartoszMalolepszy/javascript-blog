@@ -11,13 +11,18 @@ const titleClickHandler = function (event) {
   }
 
   /* add class 'active' to the clicked link */
+  const clickedElement = this;
+  //console.log('clickedElement:', clickedElement);
+  console.log('clickedElement (with plus): ' + clickedElement);
+
+  clickedElement.classList.add('active');
 
   /* remove class 'active' from all articles */
-  const acitveArticles = document.querySelectorAll('.active');
+  /* const acitveArticles = document.querySelectorAll('.active');
 
   for (let acitveArticle of acitveArticles) {
     acitveArticle.classList.remove('active');
-  }
+  }*/
 
   /* get 'href' attribute from the clicked link */
 
