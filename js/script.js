@@ -1,4 +1,4 @@
-'use strict';
+{ 'use strict';
 const titleClickHandler = function (event) {
   console.log('Link was clicked!');
   event.preventDefault();
@@ -88,3 +88,4 @@ for (let link of links) {
 }
 
 generateTitleLinks();
+}
