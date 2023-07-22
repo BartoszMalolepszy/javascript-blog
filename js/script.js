@@ -1,4 +1,4 @@
-{ 'use strict';
+('use strict');
 const titleClickHandler = function (event) {
   console.log('Link was clicked!');
   event.preventDefault();
@@ -42,7 +42,7 @@ const optArticleSelector = '.post',
 
 function generateTitleLinks() {
   /* remove contents of titleList */
-  let titleList = document.querySelector(optTitleListSelector);
+  const titleList = document.querySelector(optTitleListSelector);
   console.log(titleList);
   titleList.innerHTML = '';
 
@@ -88,4 +88,3 @@ for (let link of links) {
 }
 
 generateTitleLinks();
-}
