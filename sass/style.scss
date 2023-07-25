@@ -84,7 +84,6 @@ body {
   list-style-type: none;
   margin: 0;
   padding: 0;
-
   .active {
     font-weight: bold;
   }
@@ -94,8 +93,10 @@ body {
   li {
     display: inline-block;
   }
+  a  {
+    margin-right: 10px;
+  }
 }
-
 /* Authors */
 
 .authors {
@@ -108,8 +109,7 @@ body {
 
 .post {
   display: none;
-  
-  &.active {
+    &.active {
     display: block;
   }
 }
@@ -119,10 +119,9 @@ body {
 }
 
 .post-tags {
-  
   display: flex;
-  
-  p {
+    p {
     margin: 0 10px 0 0;
+    
   }
 }
