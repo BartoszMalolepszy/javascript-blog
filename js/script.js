@@ -293,5 +293,5 @@ const addClickListenersToAuthors = function addClickListenersToAuthor() {
 
     /* END LOOP: for each link */
   }
-  addClickListenersToAuthor();
 };
+addClickListenersToAuthors();
