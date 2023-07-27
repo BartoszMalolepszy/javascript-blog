@@ -215,8 +215,7 @@ const generateAuthors = function generateAuthors() {
     const authorWraper = article.querySelector(optArticleAuthorSelector);
 
     /* make html variable with empty string */
-
-    let html = '';
+    // let html = ''; nie potrzebne bo 1 autor
 
     /* get tags from data-author attribute */
 
@@ -228,17 +227,17 @@ const generateAuthors = function generateAuthors() {
     const authorHTML =
       '<a href="#author-' +
       articleAuthor +
-      '"<span>' +
+      '"><span>' +
       '<strong>Author: </strong>' +
       ' ' +
       articleAuthor +
-      '</span></a></li></a> ';
+      '</span></a></li>';
 
     /* add generated code to html variable */
 
-    html = html + authorHTML;
+    console.log(authorHTML);
 
-    authorWraper.innerHTML = html;
+    authorWraper.innerHTML = authorHTML;
   }
 };
 generateAuthors();
