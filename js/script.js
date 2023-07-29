@@ -231,7 +231,7 @@ const generateAuthors = function generateAuthors() {
       '<strong>Author: </strong>' +
       ' ' +
       articleAuthor +
-      '</span></a></li>';
+      '</span></a>';
 
     /* add generated code to html variable */
 
