@@ -40,8 +40,9 @@ const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
   optTitleListSelector = '.titles',
   optArticleTagSelector = '.post-tags .list',
-  optArticleAuthorSelector = '.post-author';
-//console.log(optArticleAuthorSelector);
+  optArticleAuthorSelector = '.post-author',
+  //console.log(optArticleAuthorSelector);
+  optTagsListSelector = '.tags.list';
 
 function generateTitleLinks(customSelector = '') {
   /* remove contents of titleList */
@@ -95,6 +96,8 @@ for (let link of links) {
 generateTitleLinks();
 
 function generateTags() {
+  /* [NEW] create a new variable allTags with an empty array */
+  let allTags = [];
   /* find all articles */
   const articles = document.querySelectorAll(optArticleSelector); // wyszukuje wszystkie artykuły
   console.log(articles);
@@ -129,6 +132,12 @@ function generateTags() {
 
       html = html + linkHTML;
 
+      /* [NEW] check if this link is NOT already in allTags */
+      if (allTags.indexOf(linkHTML) == -1) {
+        /* [NEW] add generated code to allTags array */
+        allTags.push(linkHTML);
+      }
+
       /* END LOOP: for each tag */
       console.log(linkHTML);
     }
@@ -138,6 +147,11 @@ function generateTags() {
     wrapperTags.innerHTML = html;
 
     /* END LOOP: for every article: */
+    /* [NEW] find list of tags in right column */
+    const tagList = document.querySelector(optTagsListSelector);
+
+    /* [NEW] add html from allTags to tagList */
+    tagList.innerHTML = allTags.join(' ');
   }
 }
 
@@ -295,3 +309,5 @@ const addClickListenersToAuthors = function addClickListenersToAuthor() {
   }
 };
 addClickListenersToAuthors();
+
+//new 7.3
