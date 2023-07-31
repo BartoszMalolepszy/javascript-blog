@@ -86,14 +86,26 @@ function generateTitleLinks(customSelector = '') {
     link.addEventListener('click', titleClickHandler);
   }
 }
-const links = document.querySelectorAll('.titles a');
-console.log(links);
-
-for (let link of links) {
-  link.addEventListener('click', titleClickHandler);
-}
 
 generateTitleLinks();
+
+/* Start calculateTagsParams function*/
+
+const calculateTagsParams = function calculateTagsParams(tags) {
+  const params = { max: 0, min: 999999 };
+
+  for (let tag in tags) {
+    if (tags[tag] > params.max) {
+      params.max = tags[tag];
+    } else if (tags[tag] < params.min) {
+      params.min = tags[tag];
+    }
+  }
+  return params;
+  console.log(params);
+};
+
+console.log(calculateTagsParams);
 
 function generateTags() {
   /* [NEW] create a new variable allTags with an empty object */
@@ -151,6 +163,9 @@ function generateTags() {
     /* END LOOP: for every article: */
     /* [NEW] find list of tags in right column */
     const tagList = document.querySelector(optTagsListSelector);
+
+    const tagsParams = calculateTagsParams(allTags);
+    console.log('tagsParams:', tagsParams);
 
     /* [NEW] create variable for all links HTML code */
     let allTagsHTML = '';
@@ -223,7 +238,7 @@ function tagClickHandler(event) {
 
 const addClickListenersToTags = function () {
   /* find all links to tags */
-  const links = document.querySelectorAll('.post-tags a');
+  const links = document.querySelectorAll('[href^="#tag-"]'); //[] - że zawiera, atrybut href, ^ który zaczyna się od od znaków #tag , noi stringi dodajemy w ""
   console.log(links);
 
   /* START LOOP: for each link */
