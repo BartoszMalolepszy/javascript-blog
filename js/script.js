@@ -42,7 +42,9 @@ const optArticleSelector = '.post',
   optArticleTagSelector = '.post-tags .list',
   optArticleAuthorSelector = '.post-author',
   //console.log(optArticleAuthorSelector);
-  optTagsListSelector = '.tags.list';
+  optTagsListSelector = '.tags.list',
+  optCloudClassCount = 5,
+  optCloudClassPrefix = 'tag-size-'; 
 
 function generateTitleLinks(customSelector = '') {
   /* remove contents of titleList */
@@ -101,11 +103,15 @@ const calculateTagsParams = function calculateTagsParams(tags) {
       params.min = tags[tag];
     }
   }
-  return params;
   console.log(params);
+  return params;
 };
 
-console.log(calculateTagsParams);
+const calculateTagClass = function (count, params) {
+
+//miejsce na napisanie funkcji 
+
+}
 
 function generateTags() {
   /* [NEW] create a new variable allTags with an empty object */
@@ -172,16 +178,17 @@ function generateTags() {
 
     /* [NEW] START LOOP: for each tag in allTags: */
     for (let tag in allTags) {
-      /* [NEW] generate code of a link and add it to allTagsHTML */
-      allTagsHTML +=
-        '<li><a href="#tag-' +
-        tag +
-        '"><span>' +
-        tag +
-        ' (' +
-        allTags[tag] +
-        ')' +
-        '</span></a></li>';
+      /* [NEW] generate code of a link and add it to allTagsHTML */ - //poprawiony kod przez mentora poniżej, błąd w kursie Kodilla 
+      const tagLinkHtml = '<li><a class="'+ calculateTagClass(allTags[tag], tagsParams) +'" href="#tag-' +
+      tag +
+      '"><span>' +
+      tag +
+      ' (' +
+      allTags[tag] +
+      ')' +
+      '</span></a></li>';
+
+      allTagsHTML += tagLinkHtml
 
       /* [NEW] END LOOP: for each tag in allTags: */
     }
