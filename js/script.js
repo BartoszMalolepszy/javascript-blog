@@ -46,7 +46,7 @@ const optArticleSelector = '.post',
   optCloudClassCount = 5,
   optCloudClassPrefix = 'tag-size-'; 
 
-function generateTitleLinks(customSelector = '') {
+  function generateTitleLinks (customSelector = '') {
   /* remove contents of titleList */
   const titleList = document.querySelector(optTitleListSelector);
   console.log(titleList);
@@ -107,13 +107,13 @@ const calculateTagsParams = function calculateTagsParams(tags) {
   return params;
 };
 
-const calculateTagClass = function (count, params) {
+/*const calculateTagClass = function (count, params) {
 
 //miejsce na napisanie funkcji 
 
-}
+}*/
 
-function generateTags() {
+function generateTags(){
   /* [NEW] create a new variable allTags with an empty object */
   let allTags = {};
   /* find all articles */
@@ -167,6 +167,7 @@ function generateTags() {
     wrapperTags.innerHTML = html;
 
     /* END LOOP: for every article: */
+  }
     /* [NEW] find list of tags in right column */
     const tagList = document.querySelector(optTagsListSelector);
 
@@ -195,7 +196,7 @@ function generateTags() {
     /*[NEW] add HTML from allTagsHTML to tagList */
     tagList.innerHTML = allTagsHTML;
     console.log(allTagsHTML);
-  }
+  
 }
 
 generateTags();
