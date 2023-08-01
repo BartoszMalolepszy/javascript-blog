@@ -49,6 +49,7 @@ body {
 .wrapper {
   display: flex;
   margin-left: 10px;
+  height: auto;
 }
 
 .sidebar {
@@ -118,10 +119,45 @@ body {
   font-style: italic;
 }
 
+
+.tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+    li{
+      padding-left: 20px;
+    }
+}
+
 .post-tags {
   display: flex;
     p {
     margin: 0 10px 0 0;
     
   }
+}
+
+.tag-size-1 {
+  font-size: 20px;
+  color: blue;
+}
+
+.tag-size-2 {
+  font-size: 24px;
+  color: blueviolet;
+}
+.tag-size-3 {
+  font-size: 28px;
+  color: rgba(4, 255, 0, 0.684);
+  font-weight: bolder;
+}
+.tag-size-4 {
+  font-size: 30px;
+  color: pink;
+  font-weight: bolder;
+}
+.tag-size-5 {
+  font-size: 33px;
+  color: green;
+  font-weight: bolder;
 }

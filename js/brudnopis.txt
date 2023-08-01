@@ -185,4 +185,16 @@ function generateTags() {
     /* END LOOP: for every article: */
   }
 }
+poprawiony z 183 przez Aleksa : 
 
+const tagLinkHtml =
+      '<li><a class="' +
+      calculateTagClass(allTags[tag], tagsParams) +
+      '" href="#tag-' +
+      tag +
+      '"><span>' +
+      tag +
+      ' (' +
+      allTags[tag] +
+      ')' +
+      '</span></a></li>';
