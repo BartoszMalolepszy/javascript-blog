@@ -190,11 +190,7 @@ function generateTags() {
       '" href="#tag-' +
       tag +
       '"><span>' +
-      tag +
-      ' (' +
-      allTags[tag] +
-      ')' +
-      '</span></a></li>';
+      tag + '</span></a></li>';
 
     allTagsHTML += tagLinkHtml;
 
@@ -326,9 +322,9 @@ const generateAuthors = function () {
       '"<span>' +
       ' ' +
       author +
-      '</span></a>  (' +
+      '</span>  (' +
       allAuthors[author] +
-      ') </li>';
+      ') </a></li>';
 
     allAuthorsHTML += linkHTML;
   }
