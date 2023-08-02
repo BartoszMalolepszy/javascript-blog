@@ -46,6 +46,10 @@ body {
 
 /* Layout */
 
+a {
+  text-decoration: none;
+} 
+
 .wrapper {
   display: flex;
   margin-left: 10px;

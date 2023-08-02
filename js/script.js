@@ -300,10 +300,11 @@ const generateAuthors = function () {
       '</span></a>';
 
     /* check if this link is NOT already in allAuthors */
-    if (!allAuthors[author]) {
-      allAuthors[author] = 1;
+
+    if (!allAuthors[articleAuthor]) {
+      allAuthors[articleAuthor] = 1;
     } else {
-      allAuthors[author]++;
+      allAuthors[articleAuthor]++;
     }
 
     /* add generated code to html variable */
@@ -388,4 +389,3 @@ const addClickListenersToAuthors = function addClickListenersToAuthor() {
   }
 };
 addClickListenersToAuthors();
-
