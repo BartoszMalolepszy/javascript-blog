@@ -1,4 +1,7 @@
 {
+    "globals": {
+        "Handlebars": false
+      }
     "env": {
         "browser": true,
         "es6": true
@@ -28,5 +31,6 @@
             "off"
         ],
         "no-prototype-builtins": ["off"]
+        
     }
 }
