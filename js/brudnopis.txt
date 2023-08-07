@@ -198,3 +198,7 @@ const tagLinkHtml =
       allTags[tag] +
       ')' +
       '</span></a></li>';
+
+Dodany kod w linie 74 -77 
+dalsza część zadania do zrobienia z 7.4 to pkt. 2-5 
+z czego 2 i 3 analogia do 1 ?
