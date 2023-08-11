@@ -1,6 +1,10 @@
 'use strict';
 const templates = {
-  articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML)
+  articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
+  tagCloudLink: Handlebars.compile(document.querySelector('#template-tag-cloud-link').innerHTML),
+  tagAuthorRightColumnLink: Handlebars.compile(document.querySelector('#template-author-right-column-link').innerHTML),
+};
+
 }
 const titleClickHandler = function (event) {
   console.log('Link was clicked!');
@@ -138,18 +142,18 @@ function generateTags() {
     /* get tags from data-tags attribute */
 
     const articelTags = article.getAttribute('data-tags'); // pobieram wszystkie tagi z poszczegłnych art
-    console.log(articelTags);
 
     /* split tags into array */
     const articelTagsArray = articelTags.split(' ');
-    console.log(articelTagsArray);
+    //console.log(articelTagsArray);
 
     /* START LOOP: for each tag */
     for (let tag of articelTagsArray) {
-      /* generate HTML of the link */
+      /* generate HTML of the link with handlebers */
 
-      const linkHTML =
-        '<li><a href="#tag-' + tag + '"><span>' + tag + '</span></a></li>';
+      const linkHTMLData = {id: 'tag-' + tag , title: tag};
+
+      const linkHTML = templates.articleLink(linkHTMLData);
 
       /* add generated code to html variable */
 
@@ -180,26 +184,26 @@ function generateTags() {
   console.log('tagsParams:', tagsParams); // tutaj zlicza ile jest max i ile min tagów
 
   /* [NEW] create variable for all links HTML code */
-  let allTagsHTML = '';
+  //let allTagsHTML = '';
+/*create variable for all links HTML code - Handlebars */
+  const allTagsData = {tags: []};
 
-  /* [NEW] START LOOP: for each tag in allTags: */
+  /* [NEW] START LOOP: for each tag in allTags: with Handlebars */
   for (let tag in allTags) {
     /* [NEW] generate code of a link and add it to allTagsHTML */ //poprawiony kod przez mentora poniżej, błąd w kursie Kodilla
-    const tagLinkHtml =
-      '<li><a class="' +
-      calculateTagClass(allTags[tag], tagsParams) +
-      '" href="#tag-' +
-      tag +
-      '"><span>' +
-      tag + '</span></a></li>';
-
-    allTagsHTML += tagLinkHtml;
+      allTagsData.tags.push({
+        tag: tag,
+        count: allTags[tag],
+        className: calculateTagClass(allTags[tag], tagsParams)
+      });
+    
+      //allTagsHTML += tagLinkHtml;
 
     /* [NEW] END LOOP: for each tag in allTags: */
   }
-  /*[NEW] add HTML from allTagsHTML to tagList */
-  tagList.innerHTML = allTagsHTML;
-  console.log(allTagsHTML);
+  /*[NEW] add HTML from allTagsHTML to tagList with Handlebars */
+  
+  tagList.innerHTML = templates.tagCloudLink(allTagsData);
 }
 
 generateTags();
