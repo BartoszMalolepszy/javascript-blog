@@ -1,15 +1,23 @@
 'use strict';
 const templates = {
-  tagLink: Handlebars.compile(document.querySelector('#template-tag-link').innerHTML),
+  tagLink: Handlebars.compile(
+    document.querySelector('#template-tag-link').innerHTML
+  ),
 
-  authorLink: Handlebars.compile(document.querySelector('#template-author-link').innerHTML),
+  authorLink: Handlebars.compile(
+    document.querySelector('#template-author-link').innerHTML
+  ),
 
   articleLink: Handlebars.compile(
     document.querySelector('#template-article-link').innerHTML
   ),
 
-  tagCloudLink: Handlebars.compile(document.querySelector('#template-tag-cloud-link').innerHTML),
-  authorCloudLink: Handlebars.compile(document.querySelector('#template-author-cloud-link').innerHTML),
+  tagCloudLink: Handlebars.compile(
+    document.querySelector('#template-tag-cloud-link').innerHTML
+  ),
+  authorCloudLink: Handlebars.compile(
+    document.querySelector('#template-author-cloud-link').innerHTML
+  ),
 };
 
 const titleClickHandler = function (event) {
@@ -157,9 +165,9 @@ function generateTags() {
     for (let tag of articelTagsArray) {
       /* generate HTML of the link with handlebers */
 
-      const linkHTMLData = { id: 'tag-' + tag, title: tag };
+      const linkHTMLData = { id: 'tag, title: tag' };
 
-      const linkHTML = templates.articleLink(linkHTMLData);
+      const linkHTML = templates.tagLink(linkHTMLData);
 
       /* add generated code to html variable */
 
@@ -295,7 +303,7 @@ const generateAuthors = function () {
     const articleAuthor = article.getAttribute('data-author');
     articleAuthor;
 
-    /* generate HTML of the link */
+    /* generate HTML of the link - kod JS, który sam generuje cały kod linków do autorów: */
 
     const authorHTML =
       '<a href="#author-' +
@@ -317,7 +325,11 @@ const generateAuthors = function () {
     /* add generated code to html variable */
     console.log(authorHTML);
 
-    authorWraper.innerHTML = authorHTML;
+    //authorWraper.innerHTML = authorHTML; wykorzystanie szablonów do wstawienia w plasceholder'y
+    authorWraper.innerHTML = templates.authorLink({
+      title: articleAuthor,
+      id: articleAuthor,
+    });
   }
   /*find list of authors in right column */
   const authorList = document.querySelector(optAuthorsListSelector);
