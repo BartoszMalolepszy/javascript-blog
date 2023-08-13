@@ -165,7 +165,7 @@ function generateTags() {
     for (let tag of articelTagsArray) {
       /* generate HTML of the link with handlebers */
 
-      const linkHTMLData = { id: 'tag, title: tag' };
+      const linkHTMLData = { id: tag, title: tag };
 
       const linkHTML = templates.tagLink(linkHTMLData);
 
