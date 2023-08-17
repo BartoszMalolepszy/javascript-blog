@@ -301,7 +301,6 @@ const generateAuthors = function () {
     /* get tags from data-author attribute */
 
     const articleAuthor = article.getAttribute('data-author');
-    articleAuthor;
 
     /* generate HTML of the link - kod JS, który sam generuje cały kod linków do autorów: */
 
