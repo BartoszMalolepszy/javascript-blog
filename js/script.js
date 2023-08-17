@@ -305,16 +305,12 @@ const generateAuthors = function () {
 
     /* generate HTML of the link - kod JS, który sam generuje cały kod linków do autorów: */
 
-    const authorHTML =
-      '<a href="#author-' +
-      articleAuthor +
-      '">' +
-      '<strong>Author: </strong>' +
-      ' ' +
-      articleAuthor +
-      '</a>';
+    const authorHTML = templates.authorLink({
+      title: articleAuthor,
+      id: articleAuthor,
+    });
 
-    /* check if this link is NOT already in allAuthors */
+    / check if this link is NOT already in allAuthors /;
 
     if (!allAuthors[articleAuthor]) {
       allAuthors[articleAuthor] = 1;
@@ -322,36 +318,26 @@ const generateAuthors = function () {
       allAuthors[articleAuthor]++;
     }
 
-    /* add generated code to html variable */
+    / add generated code to html variable /;
     console.log(authorHTML);
 
     //authorWraper.innerHTML = authorHTML; wykorzystanie szablonów do wstawienia w plasceholder'y
-    authorWraper.innerHTML = templates.authorLink({
-      title: articleAuthor,
-      id: articleAuthor,
-    });
+    authorWraper.innerHTML = authorHTML;
   }
-  /*find list of authors in right column */
+  /find list of authors in right column /;
   const authorList = document.querySelector(optAuthorsListSelector);
 
-  /* [NEW] create variable for all links HTML code */
-  let allAuthorsHTML = '';
+  / [NEW] create variable for all links HTML code /;
 
-  /* [NEW] START LOOP: for each tag in allAuthors: */
+  const allAuthorsData = { authors: [] };
   for (let author in allAuthors) {
-    const linkHTML =
-      '<li><a href="#author-' +
-      author +
-      '"<span>' +
-      ' ' +
-      author +
-      '</span>  (' +
-      allAuthors[author] +
-      ') </a></li>';
-
-    allAuthorsHTML += linkHTML;
+    allAuthorsData.authors.push({
+      author: author,
+      count: allAuthors[author],
+    });
   }
-  authorList.innerHTML = allAuthorsHTML;
+
+  authorList.innerHTML = templates.authorCloudLink(allAuthorsData);
 };
 generateAuthors();
 
