@@ -308,11 +308,11 @@ const generateAuthors = function () {
     const authorHTML =
       '<a href="#author-' +
       articleAuthor +
-      '"><span>' +
+      '">' +
       '<strong>Author: </strong>' +
       ' ' +
       articleAuthor +
-      '</span></a>';
+      '</a>';
 
     /* check if this link is NOT already in allAuthors */
 
