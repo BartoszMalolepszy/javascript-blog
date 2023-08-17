@@ -310,7 +310,7 @@ const generateAuthors = function () {
       id: articleAuthor,
     });
 
-    / check if this link is NOT already in allAuthors /;
+    // check if this link is NOT already in allAuthors /;
 
     if (!allAuthors[articleAuthor]) {
       allAuthors[articleAuthor] = 1;
@@ -318,16 +318,16 @@ const generateAuthors = function () {
       allAuthors[articleAuthor]++;
     }
 
-    / add generated code to html variable /;
+    // add generated code to html variable /;
     console.log(authorHTML);
 
     //authorWraper.innerHTML = authorHTML; wykorzystanie szablonów do wstawienia w plasceholder'y
     authorWraper.innerHTML = authorHTML;
   }
-  /find list of authors in right column /;
+  //find list of authors in right column /;
   const authorList = document.querySelector(optAuthorsListSelector);
 
-  / [NEW] create variable for all links HTML code /;
+  // [NEW] create variable for all links HTML code //;
 
   const allAuthorsData = { authors: [] };
   for (let author in allAuthors) {
